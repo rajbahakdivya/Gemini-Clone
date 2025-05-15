@@ -1,5 +1,3 @@
-//AIzaSyCtq3XmYUxpWlq8rfsmeBdNKXQtAgmAYKM
-
 // Import the Google Generative AI SDK
 import {
   GoogleGenerativeAI,
@@ -8,11 +6,13 @@ import {
 } from "@google/generative-ai";
 
 // Set your Gemini model and API key
-const MODEL_NAME = "gemini-2.5-flash-preview-04-17"; // Use gemini-1.5-pro-latest for the latest version
-const API_KEY = "AIzaSyAdsKgUy2w2hF04a2MNhi0GtQ7kPsOe5Lk"; // 🔥 Replace with your real API key
+const MODEL_NAME = "gemini-2.5-flash-preview-04-17"; 
+const apiKey = import.meta.env.VITE_API_KEY;
 
 async function runChat(promptText) {
-  const genAI = new GoogleGenerativeAI(API_KEY);
+  
+  const genAI = new GoogleGenerativeAI(apiKey); 
+  
   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
   const generationConfig = {
@@ -56,4 +56,3 @@ async function runChat(promptText) {
 }
 
 export default runChat;
-
